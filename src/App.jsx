@@ -9,6 +9,7 @@ import Contact from "../components/contact/Contact";
 import { Element } from "react-scroll";
 
 import MiniHouse from "../components/3DComponents/MiniHouse";
+import HeroText from "../components/HeroText/HeroText";
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 import { useState, useCallback } from "react";
 
@@ -28,6 +29,7 @@ function App() {
           <section id="introduction">
             <span className="spacer" aria-hidden="true" />
             <span className="spacer" aria-hidden="true" />
+            <HeroText />
             <MiniHouse />
           </section>
         </Element>

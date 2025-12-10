@@ -39,9 +39,17 @@ section {
 
 // Make Canvas fill the introduction section
 section#introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+
   canvas {
     width: 100% !important;
     height: 100% !important;
+    margin-top: 0;
+
   }
 }
 
@@ -55,5 +63,29 @@ section#introduction {
     padding: 0 15px;
     height: auto;
     min-height: 100vh;
+  }
+
+  section#introduction {
+    min-height: 100vh;
+    overflow: visible;
+
+    canvas {
+      height: 60vh !important;
+      transform: scale(1.1);
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  
+  section#introduction {
+    min-height: 100vh;
+
+    canvas {
+      height: 55vh !important;
+      transform: scale(1.15);
+      margin-top: 0;
+    }
   }
 }
