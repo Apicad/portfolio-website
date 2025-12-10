@@ -1,0 +1,21 @@
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+button {
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+
+  .image-icon {
+    width: 32px;
+    height: 32px;
+  }
+}

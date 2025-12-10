@@ -1,0 +1,59 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(
+    to top,
+    #2a4478 0%,
+    #132f67 100%,
+    #051e50 100%,
+    #05225b 100%
+  );
+  color: lightgray;
+  font-family: "Funnel Sans", sans-serif;
+  padding-top: 72px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  height: 100vh;
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 0;
+  scroll-snap-align: center;
+  padding: 0 20px;
+}
+
+// Make Canvas fill the introduction section
+section#introduction {
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+// Mobile styles
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+
+  section {
+    padding: 0 15px;
+    height: auto;
+    min-height: 100vh;
+  }
+}
