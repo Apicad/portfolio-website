@@ -109,8 +109,5 @@ A fully optimized production build is generated in the `dist/` directory.
 
 - GitHub: [@Apicad](https://github.com/Apicad)  
 - LinkedIn: [linkedin.com/in/abdiel-picado/](https://linkedin.com/in/abdiel-picado/)  
-
 ---
-
-⭐ If you like this project, feel free to leave a star!
 
