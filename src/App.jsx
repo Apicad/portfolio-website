@@ -27,8 +27,6 @@ function App() {
         <Navbar />
         <Element name="section1">
           <section id="introduction">
-            <span className="spacer" aria-hidden="true" />
-            <span className="spacer" aria-hidden="true" />
             <HeroText />
             <MiniHouse />
           </section>

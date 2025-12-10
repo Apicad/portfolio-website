@@ -97,7 +97,6 @@ const AboutMe = () => {
   // one box should come from the left and the right
   return (
     <div className="container">
-      <span className="spacer" aria-hidden="true" />
       <motion.div
         initial={{ opacity: 0, y: -80 }}
         whileInView={{ opacity: 1, y: 0 }}

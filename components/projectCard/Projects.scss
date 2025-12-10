@@ -1,20 +1,24 @@
 .project-flex {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 
   .card-container {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    width: 100%;
+    gap: 20px;
+    width: calc(50% - 10px);
+    max-width: 400px;
+    min-width: 280px;
     text-align: center;
     border-radius: 15px;
-    padding: 10px;
+    padding: 15px;
     background-color: #162d57;
     cursor: pointer;
 
     .picture-container {
-      height: 15vh;
+      height: 200px;
       overflow: hidden;
       border-radius: inherit;
 
@@ -35,14 +39,16 @@ p {
 @media (max-width: 768px) {
   .project-flex {
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 
     .card-container {
-      gap: 20px;
+      width: 100%;
+      max-width: 100%;
+      gap: 15px;
       padding: 15px;
 
       .picture-container {
-        height: 20vh;
+        height: 180px;
       }
     }
   }
@@ -51,11 +57,11 @@ p {
 @media (max-width: 480px) {
   .project-flex {
     .card-container {
-      gap: 15px;
-      padding: 10px;
+      gap: 12px;
+      padding: 12px;
 
       .picture-container {
-        height: 18vh;
+        height: 160px;
       }
     }
   }

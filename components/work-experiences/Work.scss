@@ -37,36 +37,57 @@
     width: 100%;
     background-color: #162d57;
     border-radius: 20px;
-    padding: 20px;
+    padding: 30px;
     display: flex;
     justify-content: center;
+    overflow: hidden;
   }
 
   ul {
     list-style-type: disc;
-    padding: 0;
+    padding: 0 0 0 20px;
     margin: 0;
+    max-width: 100%;
   }
   li {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 1.6;
     color: white;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     padding-left: 10px;
     max-width: 600px;
     text-align: left;
+    word-wrap: break-word;
   }
 }
 
 @media (max-width: 768px) {
   .tabs-wrapper {
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
 
     .tab-container {
       flex-direction: row;
       overflow-x: auto;
+      overflow-y: hidden;
       gap: 10px;
       padding-bottom: 10px;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+      }
 
       .tab {
         height: 100px;
@@ -74,6 +95,7 @@
         width: auto;
         font-size: 18px;
         gap: 15px;
+        flex-shrink: 0;
 
         img {
           width: 50px;
@@ -82,12 +104,13 @@
     }
 
     .content {
-      padding: 40px;
+      padding: 40px 40px;
     }
 
     li {
       font-size: 16px;
       margin-bottom: 20px;
+      max-width: 100%;
     }
   }
 }
@@ -109,12 +132,14 @@
     }
 
     .content {
-      padding: 10px;
+      padding: 20px 25px;
     }
 
     li {
       font-size: 14px;
       margin-bottom: 15px;
+      padding-right: 5px;
+      max-width: 100%;
     }
   }
 }
