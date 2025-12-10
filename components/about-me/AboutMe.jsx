@@ -5,24 +5,25 @@ import Buttons from "../buttons/Buttons";
 import { motion } from "framer-motion";
 
 const Overview = () => {
+  const baseUrl = import.meta.env.BASE_URL;
   const buttonInformation = [
     {
       id: 1,
       title: "github",
-      img: "/icons/github.png",
+      img: `${baseUrl}icons/github.png`,
       link: "https://github.com/Apicad",
     },
     {
       id: 2,
       title: "linkedin",
-      img: "/icons/linkedin.png",
+      img: `${baseUrl}icons/linkedin.png`,
       link: "https://www.linkedin.com/in/abdiel-picado/",
     },
     {
       id: 3,
       title: "Resume",
-      img: "/icons/resume.png",
-      link: "/Abdiel-Picado-Resume.pdf",
+      img: `${baseUrl}icons/resume.png`,
+      link: `${baseUrl}Abdiel-Picado-Resume.pdf`,
     },
   ];
   return (
@@ -35,7 +36,7 @@ const Overview = () => {
           transition={{ duration: 0.5 }}
           className="box circle"
         >
-          <img className="profile" src="/profile.png" alt="Profile" />
+          <img className="profile" src={`${import.meta.env.BASE_URL}profile.png`} alt="Profile" />
         </motion.div>
         <Buttons items={buttonInformation} />
       </div>

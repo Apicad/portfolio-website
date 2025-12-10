@@ -119,7 +119,7 @@ const Tab = ({ children, tab, handleSetSelected, image, selected }) => {
 const TABS = [
   {
     title: "Program Assistant",
-    image: "/icons/CamEdu.jpeg",
+    image: `${import.meta.env.BASE_URL}icons/CamEdu.jpeg`,
     description: [
       "Designed and taught engaging coding lessons (Scratch, HTML/CSS, JavaScript, robotics, IoT).",
       "Planned interactive projects that helped students understand complex programming concepts.",
@@ -129,7 +129,7 @@ const TABS = [
   },
   {
     title: "Tutor Teacher",
-    image: "/icons/foothillCollege.jpeg",
+    image: `${import.meta.env.BASE_URL}icons/foothillCollege.jpeg`,
     description: [
       "Completed a pre-apprenticeship focused on web development, Arduino programming, and teamwork.",
       "Built and debugged small software and hardware projects in C++ and JavaScript.",
@@ -139,7 +139,7 @@ const TABS = [
   },
   {
     title: "Dev/Mission",
-    image: "/icons/DevMission.jpg",
+    image: `${import.meta.env.BASE_URL}icons/DevMission.jpg`,
     description: [
       "Tutored students in software design, programming, and math concepts.",
       "Simplified difficult coding and algorithm topics into clear explanations.",

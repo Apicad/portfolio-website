@@ -7,7 +7,7 @@ const Card = ({ title, description }) => {
   return (
     <motion.div className="card-container" whileHover={{ scale: 1.1, y: -30 }}>
       <div className="picture-container">
-        <img className="picture-of-card" src="/Unavailable.png" alt={title} />
+        <img className="picture-of-card" src={`${import.meta.env.BASE_URL}Unavailable.png`} alt={title} />
       </div>
       <div>
         <h2 className="title-of-card">{title}</h2>

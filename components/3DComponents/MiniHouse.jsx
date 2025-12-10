@@ -11,7 +11,7 @@ const MiniHouse = () => {
   }, []);
 
   return (
-    <div style={{ pointerEvents: 'none', width: '100%', height: '100%' }}>
+    <div style={{ pointerEvents: "none", width: "100%", height: "100%" }}>
       <Spline
         scene="https://prod.spline.design/xI6bQZSWJDbXKxvS/scene.splinecode"
         onLoad={onLoad}
