@@ -9,13 +9,13 @@ const Overview = () => {
   const buttonInformation = [
     {
       id: 1,
-      title: "github",
+      title: "Github",
       img: `${baseUrl}icons/github.png`,
       link: "https://github.com/Apicad",
     },
     {
       id: 2,
-      title: "linkedin",
+      title: "Linkedin",
       img: `${baseUrl}icons/linkedin.png`,
       link: "https://www.linkedin.com/in/abdiel-picado/",
     },

@@ -60,7 +60,7 @@
 @media (max-width: 768px) {
   .tabs-wrapper {
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
 
     .tab-container {
       flex-direction: row;
@@ -82,7 +82,7 @@
     }
 
     .content {
-      padding: 15px;
+      padding: 40px;
     }
 
     li {
