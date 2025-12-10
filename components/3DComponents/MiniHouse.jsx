@@ -1,4 +1,4 @@
-import "./mini-3d-house.scss";
+import "./Mini-3d-house.scss";
 import Spline from "@splinetool/react-spline";
 import { useCallback, useRef } from "react";
 
@@ -8,9 +8,6 @@ const MiniHouse = () => {
   const onLoad = useCallback((spline) => {
     spline.setBackgroundColor("transparent");
     splineRef.current = spline;
-
-
-
   }, []);
 
   return (

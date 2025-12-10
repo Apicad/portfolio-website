@@ -18,7 +18,12 @@ const Overview = () => {
       img: "/icons/linkedin.png",
       link: "https://www.linkedin.com/in/abdiel-picado/",
     },
-    { id: 3, title: "Resume", img: "/icons/resume.png", link: "/Abdiel-Picado-Resume.pdf" },
+    {
+      id: 3,
+      title: "Resume",
+      img: "/icons/resume.png",
+      link: "/Abdiel-Picado-Resume.pdf",
+    },
   ];
   return (
     <div className="Overview-container">
