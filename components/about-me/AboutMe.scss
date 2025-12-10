@@ -36,10 +36,16 @@ h1 {
 
 .bullet-points {
   width: 100%;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
   li {
     font-size: 20px;
     margin-bottom: 30px;
-    padding-left: 10px;
+    padding-left: 0;
   }
 }
 
@@ -55,16 +61,14 @@ h1 {
     padding: 20px;
   }
 
-  .profile-container{
+  .profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-
   .circle {
     width: 220px;
-    
   }
 
   .bullet-points {
@@ -84,7 +88,6 @@ h1 {
   .circle {
     width: 180px;
   }
-
 
   .bullet-points {
     li {

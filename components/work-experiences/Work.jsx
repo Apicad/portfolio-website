@@ -103,7 +103,7 @@ const Tab = ({ children, tab, handleSetSelected, image, selected }) => {
       viewport={{ amount: 0.4, once: true }}
       transition={{ duration: 0.5 }}
       id={`shift-tab-${tab}`}
-      onHoverEnd={() => handleSetSelected(tab)}
+      onClick={() => handleSetSelected(tab)}
       className={`tab${selected === tab ? " selected" : ""}`}
     >
       <img src={image} alt={`${children} logo`} />
@@ -121,30 +121,32 @@ const TABS = [
     title: "Program Assistant",
     image: `${import.meta.env.BASE_URL}icons/CamEdu.jpeg`,
     description: [
-      "Designed and taught engaging coding lessons (Scratch, HTML/CSS, JavaScript, robotics, IoT).",
-      "Planned interactive projects that helped students understand complex programming concepts.",
-      "Supported large groups of TK–8 students with structured activities and learning plans.",
-      "Collaborated with staff to organize schedules, lessons, and program improvements.",
+      "Designed and taught engaging coding lessons using tools like Scratch, HTML/CSS, JavaScript, robotics, and IoT, adjusting difficulty based on grade level and student experience.",
+      "Planned interactive, hands-on projects (games, animations, simple websites, and robotics challenges) to help students connect abstract programming concepts to real-world applications.",
+      "Supported large groups of TK–8 students by creating clear routines, managing transitions, and building structured activities that kept students focused, safe, and engaged.",
+      "Differentiated instruction by offering step-by-step guidance, visual aids, and extra support or extensions so that both beginner and advanced students could make progress.",
+      "Collaborated with staff to coordinate daily schedules, align lessons with program goals, and troubleshoot classroom or technology issues in real time.",
+      "Contributed to program improvements by sharing feedback from students, suggesting new activities or tools, and helping refine lesson plans to better match student needs and interests.",
     ],
   },
   {
     title: "Tutor Teacher",
     image: `${import.meta.env.BASE_URL}icons/foothillCollege.jpeg`,
     description: [
-      "Completed a pre-apprenticeship focused on web development, Arduino programming, and teamwork.",
-      "Built and debugged small software and hardware projects in C++ and JavaScript.",
-      "Practiced professional communication skills through presentations and group projects.",
-      "Assisted peers and volunteered as a teaching assistant with Google engineers.",
+      "Tutored students in software design, programming, and core math concepts, supporting them through homework, labs, and project work.",
+      "Broke down difficult coding and algorithm topics into clear, step-by-step explanations that matched each student's skill level.",
+      "Guided students in building real projects such as iOS applications, helping them move from idea to working prototype while understanding the 'why' behind each step.",
+      "Strengthened skills in patience, time management, and one-on-one teaching strategies to keep students engaged, on track, and confident in their learning.",
     ],
   },
   {
     title: "Dev/Mission",
     image: `${import.meta.env.BASE_URL}icons/DevMission.jpg`,
     description: [
-      "Tutored students in software design, programming, and math concepts.",
-      "Simplified difficult coding and algorithm topics into clear explanations.",
-      "Guided students in building projects such as iOS applications.",
-      "Developed patience, time management, and effective teaching strategies.",
+      "Tutored students in software design, programming, and math concepts, supporting them with homework, projects, and exam preparation.",
+      "Simplified difficult coding and algorithm topics into clear, step-by-step explanations that matched each student's learning pace and style.",
+      "Guided students in building practical projects such as iOS applications, helping them move from idea to implementation while understanding key programming principles.",
+      "Developed strong patience, time management, and effective teaching strategies to keep students engaged, build their confidence, and help them reach their academic goals.",
     ],
   },
 ].map((n, idx) => ({ ...n, id: idx + 1 }));
