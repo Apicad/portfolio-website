@@ -2,7 +2,7 @@ import "./App.scss";
 import Navbar from "../components/navbar/Navbar";
 import AboutMe from "../components/about-me/AboutMe";
 import Projects from "../components/projectCard/Projects";
-import { Work } from "../components/Work-experiences/Work";
+import { Work } from "../components/work-experiences/Work";
 
 import Contact from "../components/contact/Contact";
 
