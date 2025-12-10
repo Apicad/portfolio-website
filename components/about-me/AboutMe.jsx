@@ -36,7 +36,11 @@ const Overview = () => {
           transition={{ duration: 0.5 }}
           className="box circle"
         >
-          <img className="profile" src={`${import.meta.env.BASE_URL}profile.png`} alt="Profile" />
+          <img
+            className="profile"
+            src={`${import.meta.env.BASE_URL}profile.png`}
+            alt="Profile"
+          />
         </motion.div>
         <Buttons items={buttonInformation} />
       </div>
