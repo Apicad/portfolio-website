@@ -1,5 +1,5 @@
 import "./AboutMe.scss";
-import Buttons from "../buttons/buttons";
+import Buttons from "../buttons/Buttons";
 
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
