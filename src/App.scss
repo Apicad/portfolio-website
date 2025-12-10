@@ -42,6 +42,7 @@ section#introduction {
   canvas {
     width: 100% !important;
     height: 100% !important;
+    pointer-events: none !important;
   }
 }
 
