@@ -11,14 +11,32 @@ import { Element } from "react-scroll";
 import MiniHouse from "../components/3DComponents/MiniHouse";
 import HeroText from "../components/HeroText/HeroText";
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
+  const [hasShownIndicator, setHasShownIndicator] = useState(false);
 
   const handleLoadComplete = useCallback(() => {
     setIsLoading(false);
-  }, []);
+    // Show indicator immediately after loading, only once
+    if (!hasShownIndicator) {
+      setShowScrollIndicator(true);
+      setHasShownIndicator(true);
+    }
+  }, [hasShownIndicator]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100 && showScrollIndicator) {
+        setShowScrollIndicator(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showScrollIndicator]);
 
   return (
     <div>
@@ -29,6 +47,16 @@ function App() {
           <section id="introduction">
             <HeroText />
             <MiniHouse />
+            {showScrollIndicator && (
+              <div className="scroll-indicator">
+                <div className="scroll-arrow">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <p>Swipe Down For More</p>
+              </div>
+            )}
           </section>
         </Element>
 

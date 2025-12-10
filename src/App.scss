@@ -71,7 +71,6 @@ section#introduction {
   section#introduction {
     min-height: 50rem;
     padding: 0px 0px;
-    
 
     canvas {
       height: 60vh !important;
@@ -88,15 +87,136 @@ section#introduction {
   }
 
   section#introduction {
-    min-height: 40rem;
-    padding: 30px 0px;
-    overflow: hidden;
+    min-height: 25rem;
+    padding: 10px 0px;
+    overflow: visible;
 
     canvas {
-      height: 70vh !important;
-      min-height: 350px;
+      height: 60vh !important;
+      max-height: 300px;
       transform: scale(1.1);
       padding: 0;
+    }
+  }
+}
+
+// Scroll Indicator
+.scroll-indicator {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 15;
+  animation: fadeIn 1.5s ease-in;
+  opacity: 0;
+  animation-fill-mode: forwards;
+
+  p {
+    color: #4facfe;
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+  }
+
+  .scroll-arrow {
+    width: 60px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    span {
+      display: block;
+      width: 35px;
+      height: 35px;
+      border-bottom: 5px solid #4facfe;
+      border-right: 5px solid #4facfe;
+      transform: rotate(45deg);
+      animation: scrollDown 2s infinite;
+      filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.6));
+
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-10px, -10px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-indicator {
+    bottom: 150px;
+
+    p {
+      font-size: 40px;
+      font-weight: 800;
+    }
+
+    .scroll-arrow {
+      width: 80px;
+      height: 70px;
+
+      span {
+        width: 50px;
+        height: 30px;
+        border-bottom: 4px solid #4facfe;
+        border-right: 4px solid #4facfe;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .scroll-indicator {
+    bottom: 180px;
+
+    p {
+      font-size: 28px;
+    }
+
+    .scroll-arrow {
+      width: 45px;
+      height: 65px;
+
+      span {
+        width: 28px;
+        height: 28px;
+      }
     }
   }
 }
