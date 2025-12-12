@@ -64,7 +64,7 @@ function App() {
                   <span></span>
                   <span></span>
                 </div>
-                <p>Swipe Down For More</p>
+                <p>Scroll Down For More</p>
               </div>
             )}
           </section>
