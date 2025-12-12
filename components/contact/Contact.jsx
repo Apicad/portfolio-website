@@ -40,9 +40,11 @@ const Contact = () => {
 
   return (
     <div className="contact-wrapper">
-      <div className="contact-3d">
-        <ComponentBox />
-      </div>
+      {!isMobile && (
+        <div className="contact-3d">
+          <ComponentBox />
+        </div>
+      )}
       <motion.div
         className="contact-container"
         initial={{ opacity: 0, y: isMobile ? 10 : 20 }}

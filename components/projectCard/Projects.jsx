@@ -59,7 +59,7 @@ const Projects = () => {
         className="box bullet-points"
       >
         <h2>Projects - Note: All the project are still not ready</h2>
-        <h2>The will be available very soon</h2>
+        <h2>They will be available very soon</h2>
       </motion.div>
 
       <motion.div
