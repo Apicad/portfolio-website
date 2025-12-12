@@ -1,15 +1,3 @@
-h2 {
-  font-size: 40px;
-}
-#contact-p {
-  font-size: 20px;
-}
-
-h2,
-#contact-p {
-  text-align: center;
-}
-
 .contact-wrapper {
   display: flex;
   justify-content: center;
@@ -18,6 +6,23 @@ h2,
   min-height: 100vh;
   padding: 20px;
   flex-wrap: nowrap;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  h2 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  #contact-p {
+    font-size: 20px;
+    text-align: center;
+  }
 }
 
 .contact-container {
@@ -26,9 +31,16 @@ h2,
   align-items: center;
   max-width: 100%;
   width: 100%;
+  position: relative;
+  z-index: 2;
+  order: 1;
 }
 
-form {
+.contact-3d {
+  order: 2;
+}
+
+.contact-wrapper form {
   display: flex;
   flex-direction: column;
   max-width: 700px;
@@ -41,7 +53,7 @@ form {
   box-sizing: border-box;
 }
 
-.input-box {
+.contact-wrapper .input-box {
   display: flex;
   flex-direction: column;
   font-size: 20px;
@@ -99,8 +111,7 @@ form {
   }
 }
 
-button {
-  /* Variables */
+.contact-wrapper button {
   --button_radius: 0.75em;
   --button_color: #e8e8e8;
   --button_outline_color: #000000;
@@ -112,9 +123,17 @@ button {
   background: var(--button_outline_color);
   padding: 0;
   margin-top: 10px;
+
+  &:hover .contact-button_top {
+    transform: translateY(-0.33em);
+  }
+
+  &:active .contact-button_top {
+    transform: translateY(0);
+  }
 }
 
-.contact-button_top {
+.contact-wrapper .contact-button_top {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,50 +147,53 @@ button {
   transition: transform 0.1s ease;
 }
 
-button:hover .contact-button_top {
-  transform: translateY(-0.33em);
-}
-
-button:active .contact-button_top {
-  transform: translateY(0);
-}
-
-.result-message {
+.contact-wrapper .result-message {
   text-align: center;
   font-size: 16px;
   color: #8fb0ff;
   margin-top: 10px;
 }
 
-@media (max-width: 740px) {
-  h2 {
-    font-size: 32px;
-  }
-
-  #contact-p {
-    font-size: 18px;
-  }
-
+@media (max-width: 768px) {
   .contact-wrapper {
-    position: relative;
-    display: block;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
+    min-height: 100svh;
+    padding: 20px;
+    max-width: 100vw;
+
+    h2 {
+      font-size: 32px;
+    }
+
+    #contact-p {
+      font-size: 18px;
+    }
   }
 
   .contact-container {
     position: relative;
     z-index: 2;
+    width: 100%;
+    max-width: 100%;
   }
 
-  form {
+  .contact-3d {
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .contact-wrapper form {
     width: 100%;
     max-width: 100%;
     padding: 20px;
+    background-color: rgba(22, 45, 87, 0.92);
+    backdrop-filter: blur(10px);
   }
 
-  .input-box {
+  .contact-wrapper .input-box {
     font-size: 18px;
 
     input {
@@ -181,34 +203,52 @@ button:active .contact-button_top {
 }
 
 @media (max-width: 480px) {
-  h2 {
-    font-size: 28px;
-  }
-
-  #contact-p {
-    font-size: 16px;
-  }
-
   .contact-wrapper {
-    position: relative;
-    display: block;
-    padding: 0;
+    min-height: 100svh;
+    padding: 20px;
+    max-width: 100vw;
+
+    h2 {
+      font-size: 28px;
+    }
+
+    #contact-p {
+      font-size: 16px;
+    }
+
+    button {
+      font-size: 16px;
+    }
+
+    .contact-button_top {
+      padding: 10px 20px;
+    }
   }
 
   .contact-container {
     position: relative;
     z-index: 2;
     width: 100%;
+    max-width: 100%;
   }
 
-  form {
+  .contact-3d {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .contact-wrapper form {
     width: 100%;
     max-width: 100%;
     padding: 20px;
     gap: 15px;
+    background-color: rgba(22, 45, 87, 0.92);
+    backdrop-filter: blur(10px);
   }
 
-  .input-box {
+  .contact-wrapper .input-box {
     font-size: 16px;
 
     input {
@@ -221,13 +261,5 @@ button:active .contact-button_top {
       max-height: 120px;
       padding: 8px;
     }
-  }
-
-  button {
-    font-size: 16px;
-  }
-
-  .contact-button_top {
-    padding: 10px 20px;
   }
 }

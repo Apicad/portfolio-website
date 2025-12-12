@@ -26,41 +26,42 @@
 }
 
 @media (max-width: 768px) {
-  .component-box-container {
+  .contact-3d .component-box-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+    inset: 0;
+    z-index: 0;
     pointer-events: none;
+    overflow: hidden;
   }
 
-  .spline-wrapper {
-    width: 100%;
-    height: 100%;
+  .contact-3d .spline-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180%;
+    height: 180%;
     max-width: none;
-    pointer-events: all;
-    transform: scale(1.5);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
   }
 }
 
 @media (max-width: 480px) {
-  .component-box-container {
+  .contact-3d .component-box-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    padding: 0;
+    inset: 0;
+    z-index: 0;
     pointer-events: none;
+    overflow: hidden;
   }
 
-  .spline-wrapper {
-    width: 100%;
-    height: 100%;
-    pointer-events: all;
-    transform: scale(1.5);
+  .contact-3d .spline-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180%;
+    height: 180%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
   }
 }

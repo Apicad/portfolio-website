@@ -1,5 +1,4 @@
 import "./Contact.scss";
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { useState } from "react";
 import ComponentBox from "../3DComponents/ComponentBox";
@@ -32,55 +31,55 @@ const Contact = () => {
   };
 
   return (
-    <div className="container">
-      <div className="contact-wrapper">
-        <motion.div
-          className="contact-container"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ amount: 0.4, once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <form onSubmit={onSubmit}>
-            <h2>Contact</h2>
-            <p id="contact-p">Lets get connected!</p>
-            <div className="input-box">
-              <label htmlFor="name">Full Name</label>
-              <input
-                type="text"
-                className="field"
-                name="name"
-                placeholder="Enter Your Name"
-                required
-              />
-            </div>
-            <div className="input-box">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                className="field"
-                name="email"
-                placeholder="Enter Your Email"
-                required
-              />
-            </div>
-            <div className="input-box">
-              <label htmlFor="message">Leave a message</label>
-              <textarea
-                name="message"
-                id="message"
-                placeholder="Enter your message"
-                required
-              ></textarea>
-            </div>
-            <button type="submit">
-              <span className="contact-button_top">Send Message</span>
-            </button>
-            {result && <p className="result-message">{result}</p>}
-          </form>
-        </motion.div>
+    <div className="contact-wrapper">
+      <div className="contact-3d">
         <ComponentBox />
       </div>
+      <motion.div
+        className="contact-container"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.4, once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <form onSubmit={onSubmit}>
+          <h2>Contact</h2>
+          <p id="contact-p">Lets get connected!</p>
+          <div className="input-box">
+            <label htmlFor="name">Full Name</label>
+            <input
+              type="text"
+              className="field"
+              name="name"
+              placeholder="Enter Your Name"
+              required
+            />
+          </div>
+          <div className="input-box">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              className="field"
+              name="email"
+              placeholder="Enter Your Email"
+              required
+            />
+          </div>
+          <div className="input-box">
+            <label htmlFor="message">Leave a message</label>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Enter your message"
+              required
+            ></textarea>
+          </div>
+          <button type="submit">
+            <span className="contact-button_top">Send Message</span>
+          </button>
+          {result && <p className="result-message">{result}</p>}
+        </form>
+      </motion.div>
     </div>
   );
 };
