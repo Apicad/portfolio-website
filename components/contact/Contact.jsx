@@ -1,10 +1,18 @@
 import "./Contact.scss";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ComponentBox from "../3DComponents/ComponentBox";
 
 const Contact = () => {
   const [result, setResult] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -37,10 +45,13 @@ const Contact = () => {
       </div>
       <motion.div
         className="contact-container"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ amount: 0.4, once: true }}
-        transition={{ duration: 0.5 }}
+        transition={{
+          duration: isMobile ? 0.3 : 0.5,
+          ease: "easeOut",
+        }}
       >
         <form onSubmit={onSubmit}>
           <h2>Contact</h2>

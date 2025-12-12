@@ -6,11 +6,17 @@ import { motion } from "framer-motion";
 const ComponentBox = memo(() => {
   const splineRef = useRef();
   const [isMobile, setIsMobile] = useState(false);
+  const [isInContact, setIsInContact] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
+
+    // Check if component is in contact section
+    const contactSection = document.querySelector(".contact-3d");
+    setIsInContact(!!contactSection);
+
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
@@ -20,12 +26,16 @@ const ComponentBox = memo(() => {
     (spline) => {
       spline.setBackgroundColor("transparent");
 
-      // Reduce quality on mobile for better performance
+      // Optimize for mobile - reduce quality and framerate
       if (isMobile) {
         try {
-          spline.setZoom(0.8);
+          // Reduce rendering quality on mobile
+          const canvas = spline._scene?.children?.[0]?.userData?.canvas;
+          if (canvas) {
+            canvas.style.imageRendering = "optimizeSpeed";
+          }
         } catch (e) {
-          console.log("Could not adjust zoom");
+          console.log("Could not optimize rendering");
         }
       }
 
@@ -34,13 +44,16 @@ const ComponentBox = memo(() => {
     [isMobile]
   );
 
+  // Disable motion animation when in contact section on mobile
+  const shouldAnimate = !isMobile || !isInContact;
+
   return (
     <motion.div
       className="component-box-container"
-      initial={{ opacity: 0, x: isMobile ? 0 : 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={shouldAnimate ? { opacity: 0, x: 50 } : { opacity: 1 }}
+      whileInView={shouldAnimate ? { opacity: 1, x: 0 } : { opacity: 1 }}
       viewport={{ amount: 0.4, once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: isMobile ? 0.3 : 0.5, ease: "easeOut" }}
     >
       <div className="spline-wrapper">
         <Spline

@@ -15,6 +15,7 @@
     width: 100% !important;
     height: 100% !important;
     background: transparent !important;
+    image-rendering: auto;
   }
 }
 
@@ -43,6 +44,11 @@
     max-width: none;
     pointer-events: none;
     transform: translate(-50%, -50%);
+
+    canvas {
+      image-rendering: optimizeSpeed;
+      will-change: transform;
+    }
   }
 }
 
