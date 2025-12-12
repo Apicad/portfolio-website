@@ -13,28 +13,82 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    closeMenu();
+  };
+
   return (
     <div className="fixed-nav">
-      <nav className="navbar">
-        <div className="navbar-left">
-          <button
-            className="hamburger"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <span className={isMenuOpen ? "open" : ""}></span>
-            <span className={isMenuOpen ? "open" : ""}></span>
-            <span className={isMenuOpen ? "open" : ""}></span>
-          </button>
-          <a id="logo">&lt; AP &gt;</a>
+      <nav className={`navbar ${isMenuOpen ? "menu-opened" : ""}`}>
+        <div className="navbar-header">
+          <div className="burger-container" onClick={toggleMenu}>
+            <div id="burger">
+              <div className="bar topBar"></div>
+              <div className="bar btmBar"></div>
+            </div>
+          </div>
+          <a id="logo" className="icon" onClick={scrollToTop}>
+            &lt; AP &gt;
+          </a>
         </div>
 
-        <div className={`nav-links ${isMenuOpen ? "active" : ""}`}>
+        <ul className="menu">
+          <li className="menu-item">
+            <a onClick={scrollToTop}>Home</a>
+          </li>
+          <li className="menu-item">
+            <Link
+              to="section2"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={closeMenu}
+            >
+              About
+            </Link>
+          </li>
+          <li className="menu-item">
+            <Link
+              to="section3"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={closeMenu}
+            >
+              Work Experienced
+            </Link>
+          </li>
+          <li className="menu-item">
+            <Link
+              to="section4"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={closeMenu}
+            >
+              Projects
+            </Link>
+          </li>
+          <li className="menu-item">
+            <Link
+              to="section5"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={closeMenu}
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
+
+        <div className="nav-links">
           <ul>
             <Link
               to="section2"
               smooth={true}
-              duration={200}
+              duration={500}
               onClick={closeMenu}
             >
               About
@@ -44,19 +98,29 @@ const Navbar = () => {
             <Link
               to="section3"
               smooth={true}
-              duration={300}
+              duration={500}
               onClick={closeMenu}
             >
               Work Experienced
             </Link>
           </ul>
           <ul>
-            <Link to="section4" duration={300} onClick={closeMenu}>
+            <Link
+              to="section4"
+              smooth={true}
+              duration={500}
+              onClick={closeMenu}
+            >
               Projects
             </Link>
           </ul>
           <ul>
-            <Link to="section5" duration={300} onClick={closeMenu}>
+            <Link
+              to="section5"
+              smooth={true}
+              duration={500}
+              onClick={closeMenu}
+            >
               Contact
             </Link>
           </ul>

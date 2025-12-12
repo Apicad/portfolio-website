@@ -36,11 +36,13 @@ const Overview = () => {
           transition={{ duration: 0.5 }}
           className="box circle"
         >
-          <img
-            className="profile"
-            src={`${import.meta.env.BASE_URL}profile.png`}
-            alt="Profile"
-          />
+          <div className="circle-inner">
+            <img
+              className="profile"
+              src={`${import.meta.env.BASE_URL}profile.png`}
+              alt="Profile"
+            />
+          </div>
         </motion.div>
         <Buttons items={buttonInformation} />
       </div>
@@ -104,7 +106,7 @@ const AboutMe = () => {
         transition={{ duration: 0.5 }}
         className="box"
       >
-        <h1>About Me</h1>
+        <h2>About Me</h2>
       </motion.div>
       <Overview />
     </div>

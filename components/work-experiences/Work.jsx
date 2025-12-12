@@ -6,18 +6,20 @@ import { AnimatePresence, motion, useAnimate, useInView } from "framer-motion";
 
 export const Work = () => {
   return (
-    <div className="container">
-      <span className="spacer" aria-hidden="true" />
-      <motion.div
-        initial={{ opacity: 0, y: -80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ amount: 0.4, once: true }}
-        transition={{ duration: 0.5 }}
-        className="box"
-      >
-        <h1>Work Experience</h1>
-      </motion.div>
-      <Tabs />
+    <div className="work-wrapper">
+      <div className="container">
+        <span className="spacer" aria-hidden="true" />
+        <motion.div
+          initial={{ opacity: 0, y: -80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ amount: 0.4, once: true }}
+          transition={{ duration: 0.5 }}
+          className="box"
+        >
+          <h2>Work Experience</h2>
+        </motion.div>
+        <Tabs />
+      </div>
     </div>
   );
 };
@@ -129,7 +131,7 @@ const TABS = [
       "Collaborated with staff to coordinate daily schedules, align lessons with program goals, and troubleshoot classroom or technology issues in real time.",
       "Contributed to program improvements by sharing feedback from students, suggesting new activities or tools, and helping refine lesson plans to better match student needs and interests.",
     ],
-    year:'March 2024 - Aug 2025'
+    year: "March 2024 - Aug 2025",
   },
   {
     title: "Tutor Teacher",
@@ -140,7 +142,7 @@ const TABS = [
       "Guided students in building real projects such as iOS applications, helping them move from idea to working prototype while understanding the 'why' behind each step.",
       "Strengthened skills in patience, time management, and one-on-one teaching strategies to keep students engaged, on track, and confident in their learning.",
     ],
-    year:'April 2022 - June 2022'
+    year: "April 2022 - June 2022",
   },
   {
     title: "Dev/Mission",
@@ -151,6 +153,6 @@ const TABS = [
       "Guided students in building practical projects such as iOS applications, helping them move from idea to implementation while understanding key programming principles.",
       "Developed strong patience, time management, and effective teaching strategies to keep students engaged, build their confidence, and help them reach their academic goals.",
     ],
-    year:'February 2021 - May 2021'
+    year: "February 2021 - May 2021",
   },
 ].map((n, idx) => ({ ...n, id: idx + 1 }));

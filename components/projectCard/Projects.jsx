@@ -58,7 +58,8 @@ const Projects = () => {
         transition={{ duration: 0.5 }}
         className="box bullet-points"
       >
-        <h1>Projects </h1>
+        <h2>Projects - Note: All the project are still not ready</h2>
+        <h2>The will be available very soon</h2>
       </motion.div>
 
       <motion.div

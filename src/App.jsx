@@ -67,7 +67,7 @@ function App() {
         </Element>
 
         <Element name="section3">
-          <section id="About">
+          <section id="Work">
             <Work />
           </section>
         </Element>

@@ -4,57 +4,35 @@
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 50;
+  z-index: 10;
 }
+
+$cubic: cubic-bezier(0.4, 0.01, 0.165, 0.99);
+$menuItems: 5;
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #132f67;
-  background-color: rgba(19, 47, 103, 0.95);
-  padding: 15px 35px;
-
-  .navbar-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
+  background-color: #02419a;
+  padding: 5px 40px;
+  transition:
+    all 0.5s ease-out,
+    background 1s ease-out;
+  transition-delay: 0.2s;
 
   #logo {
     font-family: "Imperial Script", cursive;
-    font-size: 40px;
+    font-size: 50px;
+    color: #fff;
   }
 
-  .hamburger {
+  .burger-container {
     display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 51;
+  }
 
-    span {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      margin: 3px 0;
-      transition: all 0.3s ease;
-      border-radius: 2px;
-
-      &.open:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-
-      &.open:nth-child(2) {
-        opacity: 0;
-      }
-
-      &.open:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-      }
-    }
+  ul.menu {
+    display: none;
   }
 
   .nav-links {
@@ -64,6 +42,20 @@
     text-decoration: none;
     font-size: 25px;
     cursor: pointer;
+
+    ul {
+      list-style: none;
+    }
+  }
+
+  a { 
+    font-size: 30px;
+    color: rgb(227, 226, 226);
+    transition: color 0.3 ease;
+  }
+
+  a:hover{ 
+    color: #fff;
   }
 }
 
@@ -73,47 +65,158 @@
 }
 
 @media (max-width: 768px) {
+  .fixed-nav {
+    position: fixed;
+  }
+
   .navbar {
-    padding: 10px 20px;
+    display: block;
+    position: relative;
+    height: 60px;
+    padding: 5px;
+    background: #0047AB;
+    overflow: hidden;
 
-    .navbar-left {
-      gap: 12px;
-    }
-
-    #logo {
-      font-size: 28px;
-    }
-
-    .hamburger {
+    .navbar-header {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      padding: 0px 20px;
+      position: relative;
+      z-index: 53;
+    }
+
+    .burger-container {
+      display: inline-block;
+      position: relative;
+      height: 60px;
+      width: 60px;
+      cursor: pointer;
+      transform: rotate(0deg);
+      transition: all 0.3s $cubic;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+
+   
+
+
+      #burger {
+        width: 28px;
+        height: 12px;
+        position: relative;
+        display: block;
+        margin: -6px auto 0;
+        top: 50%;
+
+
+        .bar {
+          width: 100%;
+          height: 2px;
+          display: block;
+          position: relative;
+          background: #fff;
+          transition: all 0.3s $cubic;
+          transition-delay: 0s;
+
+          &.topBar {
+            transform: translateY(0px) rotate(0deg);
+          }
+
+          &.btmBar {
+            transform: translateY(10px) rotate(0deg);
+          }
+        }
+      }
+    }
+
+    .icon {
+      display: inline-block;
+      color: #fff;
+      font-size: 28px;
+      line-height: normal;
+    }
+
+    ul.menu {
+      display: block;
+      position: relative;
+      padding: 10px 30px 0;
+      list-style: none;
+      margin: 0;
+      text-align: center;
+      z-index: 51;
+
+      li.menu-item {
+        border-bottom: 1px solid #333;
+        margin-top: 5px;
+        transform: scale(1.15) translateY(-30px);
+        opacity: 0;
+        transition:
+          transform 0.5s $cubic,
+          opacity 0.6s $cubic;
+
+        @for $i from 1 through $menuItems {
+          &:nth-child(#{$i}) {
+            transition-delay: #{0.56 - ($i * 0.07)}s;
+          }
+        }
+
+        a {
+          display: block;
+          position: relative;
+          color: #fff;
+          font-family: "Funnel Sans", sans-serif;
+          font-weight: 200;
+          text-decoration: none;
+          font-size: 40px;
+          line-height: 2.35;
+          width: 100%;
+          cursor: pointer;
+        }
+      }
     }
 
     .nav-links {
-      position: fixed;
-      top: 60px;
-      left: -100%;
-      flex-direction: column;
-      background-color: rgba(19, 47, 103, 0.98);
-      width: 250px;
-      height: calc(100vh - 60px);
-      padding: 30px 20px;
-      gap: 25px;
-      font-size: 20px;
-      transition: left 0.3s ease;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-      align-items: flex-start;
+      display: none;
+    }
 
-      &.active {
-        left: 0;
+    &.menu-opened {
+      height: 100vh;
+      background-color: #0047AB;
+      transition:
+        all 0.3s ease-in,
+        background 0.5s ease-in;
+      transition-delay: 0.25s;
+
+      .burger-container {
+        transform: rotate(90deg);
+
+        #burger {
+          .bar {
+            transition: all 0.4s $cubic;
+            transition-delay: 0.2s;
+
+            &.topBar {
+              transform: translateY(6px) rotate(45deg);
+            }
+
+            &.btmBar {
+              transform: translateY(4px) rotate(-45deg);
+            }
+          }
+        }
       }
 
-      ul {
-        width: 100%;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      ul.menu {
+        li.menu-item {
+          transform: scale(1) translateY(0px);
+          opacity: 1;
 
-        &:last-child {
-          border-bottom: none;
+          @for $i from 1 through $menuItems {
+            &:nth-child(#{$i}) {
+              transition-delay: #{0.07 * $i + 0.2}s;
+            }
+          }
         }
       }
     }
@@ -122,19 +225,26 @@
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 10px 15px;
-
-    .navbar-left {
-      gap: 10px;
+    .navbar-header {
+      padding: 10px;
     }
 
-    #logo {
-      font-size: 50px;
+    .burger-container {
+      width: 50px;
     }
 
-    .nav-links {
-      width: 200px;
-      font-size: 18px;
+    .icon {
+      font-size: 20px;
+    }
+
+    ul.menu {
+      padding: 10px 20px 0;
+
+      li.menu-item {
+        a {
+          font-size: 40px;
+        }
+      }
     }
   }
 }

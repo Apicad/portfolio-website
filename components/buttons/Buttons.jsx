@@ -20,8 +20,10 @@ const Buttons = (props) => {
             viewport={{ amount: 0.4, once: true }}
             transition={{ duration: 0.5 }}
           >
-            <img className="image-icon" src={e.img} alt={e.title} />
-            {e.title}
+            <span className="button_top">
+              <img className="image-icon" src={e.img} alt={e.title} />
+              {e.title}
+            </span>
           </motion.button>
         </a>
       ))}
