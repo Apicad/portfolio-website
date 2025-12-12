@@ -1,8 +1,8 @@
 import "./Mini-3d-house.scss";
 import Spline from "@splinetool/react-spline";
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, memo } from "react";
 
-const MiniHouse = () => {
+const MiniHouse = memo(() => {
   const splineRef = useRef();
 
   const onLoad = useCallback((spline) => {
@@ -16,6 +16,8 @@ const MiniHouse = () => {
       onLoad={onLoad}
     />
   );
-};
+});
+
+MiniHouse.displayName = "MiniHouse";
 
 export default MiniHouse;

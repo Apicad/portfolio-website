@@ -1,7 +1,10 @@
 import "./HeroText.scss";
-import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { useState } from "react";
+
+import { Logo3D } from "../LoadingScreen/Logo3D";
+import { Canvas } from "@react-three/fiber";
+import { motion } from "framer-motion";
 
 const HeroText = () => {
   const [showCat, setShowCat] = useState(false);

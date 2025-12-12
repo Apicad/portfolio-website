@@ -2,8 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.25rem;
-  margin-top: 2.5rem;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 button {
@@ -11,33 +12,35 @@ button {
   --button_radius: 0.75em;
   --button_color: #e8e8e8;
   --button_outline_color: #000000;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
   border: none;
   cursor: pointer;
   border-radius: var(--button_radius);
   background: var(--button_outline_color);
   padding: 0;
+  flex: 0 1 auto;
 }
 
 .button_top {
   display: flex;
-  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
   border: 2px solid var(--button_outline_color);
   border-radius: var(--button_radius);
-  padding: 6px 14px;
+  padding: 10px 20px;
   background: var(--button_color);
   color: var(--button_outline_color);
   transform: translateY(-0.2em);
   transition: transform 0.1s ease;
-  align-items: center;
-  gap: 5px;
+  gap: 8px;
+  white-space: nowrap;
 
   .image-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 6px;
-    padding: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    object-fit: contain;
   }
 }
 
@@ -49,4 +52,47 @@ button:hover .button_top {
 button:active .button_top {
   /* Push the button downwards when pressed */
   transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  button {
+    font-size: 15px;
+  }
+
+  .button_top {
+    padding: 8px 16px;
+    gap: 8px;
+
+    .image-icon {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .button_top {
+    padding: 10px 16px;
+
+    .image-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }

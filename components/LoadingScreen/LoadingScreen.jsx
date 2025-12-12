@@ -1,5 +1,7 @@
 import "./LoadingScreen.scss";
 import { useEffect, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Logo3D } from "./Logo3D";
 
 const LoadingScreen = ({ onLoadComplete }) => {
   const [progress, setProgress] = useState(0);
@@ -28,7 +30,6 @@ const LoadingScreen = ({ onLoadComplete }) => {
   }, []);
 
   useEffect(() => {
-
     if (minTimeElapsed && progress >= 100) {
       setTimeout(() => onLoadComplete(), 300);
     }
@@ -37,7 +38,13 @@ const LoadingScreen = ({ onLoadComplete }) => {
   return (
     <div className="loading-screen-overlay">
       <div className="loading-content">
-        <div className="logo-text">&lt; AP &gt;</div>
+        <div className="logo-3d-container">
+          <Canvas camera={{ position: [10, 0, 8], fov: 50 }}>
+            <ambientLight intensity={1.5} />
+            <directionalLight position={[5, 5, 5]} intensity={1} />
+            <Logo3D />
+          </Canvas>
+        </div>
         <div className="loading-bar-container">
           <div className="loading-bar" style={{ width: `${progress}%` }}></div>
         </div>

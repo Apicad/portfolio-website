@@ -8,7 +8,6 @@ export const Work = () => {
   return (
     <div className="work-wrapper">
       <div className="container">
-        <span className="spacer" aria-hidden="true" />
         <motion.div
           initial={{ opacity: 0, y: -80 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -1,0 +1,66 @@
+.component-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.spline-wrapper {
+  width: 500px;
+  height: 700px;
+  overflow: hidden;
+  background: transparent !important;
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .spline-wrapper {
+    width: 700px;
+    height: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .component-box-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .spline-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    pointer-events: all;
+    transform: scale(1.5);
+  }
+}
+
+@media (max-width: 480px) {
+  .component-box-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    padding: 0;
+    pointer-events: none;
+  }
+
+  .spline-wrapper {
+    width: 100%;
+    height: 100%;
+    pointer-events: all;
+    transform: scale(1.5);
+  }
+}

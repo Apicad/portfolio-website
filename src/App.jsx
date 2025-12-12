@@ -1,22 +1,30 @@
 import "./App.scss";
 import Navbar from "../components/navbar/Navbar";
-import AboutMe from "../components/about-me/AboutMe";
+import AboutMe from "../components/aboutMe/AboutMe";
 import Projects from "../components/projectCard/Projects";
-import { Work } from "../components/work-experiences/Work";
+import { Work } from "../components/workExperiences/Work";
 
 import Contact from "../components/contact/Contact";
 
 import { Element } from "react-scroll";
 
-import MiniHouse from "../components/3DComponents/MiniHouse";
 import HeroText from "../components/HeroText/HeroText";
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, lazy, Suspense } from "react";
+import { preloadSplineScenes } from "../components/utils/preloadAssets";
+
+// Lazy load 3D components for better performance
+const MiniHouse = lazy(() => import("../components/3DComponents/MiniHouse"));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
   const [hasShownIndicator, setHasShownIndicator] = useState(false);
+
+  // Preload Spline scenes on mount
+  useEffect(() => {
+    preloadSplineScenes();
+  }, []);
 
   const handleLoadComplete = useCallback(() => {
     setIsLoading(false);
@@ -46,7 +54,9 @@ function App() {
         <Element name="section1">
           <section id="introduction">
             <HeroText />
-            <MiniHouse />
+            <Suspense fallback={<div />}>
+              <MiniHouse />
+            </Suspense>
             {showScrollIndicator && (
               <div className="scroll-indicator">
                 <div className="scroll-arrow">
