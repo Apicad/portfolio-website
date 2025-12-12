@@ -1,20 +1,43 @@
 import "./ComponentBox.scss";
 import Spline from "@splinetool/react-spline";
-import { useCallback, useRef, memo } from "react";
+import { useCallback, useRef, memo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const ComponentBox = memo(() => {
   const splineRef = useRef();
+  const [isMobile, setIsMobile] = useState(false);
 
-  const onLoad = useCallback((spline) => {
-    spline.setBackgroundColor("transparent");
-    splineRef.current = spline;
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  const onLoad = useCallback(
+    (spline) => {
+      spline.setBackgroundColor("transparent");
+
+      // Reduce quality on mobile for better performance
+      if (isMobile) {
+        try {
+          spline.setZoom(0.8);
+        } catch (e) {
+          console.log("Could not adjust zoom");
+        }
+      }
+
+      splineRef.current = spline;
+    },
+    [isMobile]
+  );
 
   return (
     <motion.div
       className="component-box-container"
-      initial={{ opacity: 0, x: 50 }}
+      initial={{ opacity: 0, x: isMobile ? 0 : 50 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ amount: 0.4, once: true }}
       transition={{ duration: 0.5 }}
